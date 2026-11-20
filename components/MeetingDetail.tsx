@@ -1,6 +1,8 @@
-'use client';
+//'use client';
+
 
 import type { SacramentMeeting } from '@/lib/types';
+import PrintButton from './PrintButton';
 
 interface MeetingDetailProps {
     meeting: SacramentMeeting;
@@ -17,13 +19,8 @@ interface MeetingDetailProps {
             </p>
             <h1 className="text-3xl font-bold text-gray-900 mt-1">{meeting.date}</h1>
             </div>
-            <button
-            type="button"
-            onClick={() => window.print()}
-            className="bg-gray-900 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-700 transition-colors print:hidden"
-            >
-            Print Program
-            </button>
+
+            <PrintButton />
         </div>
 
         {/* Leadership */}
@@ -63,23 +60,25 @@ interface MeetingDetailProps {
             <span>{meeting.openingPrayer}</span>
             </div>
 
-            {/* Ward & Stake Business */}
-            {(meeting.wardBusiness.length > 0 || meeting.stakeBusiness) && (
-            <div className="py-3 border-y border-dashed space-y-1">
-                <span className="font-semibold text-gray-700 block">Ward &amp; Stake Business</span>
-                {meeting.wardBusiness.map((b, i) => (
-                <p key={i} className="text-gray-600">• {b.description}</p>
-                ))}
-                {meeting.stakeBusiness && (
-                <p className="text-gray-600">• Stake Business Included</p>
+       {/* Ward & Stake Business */}
+        <div className="py-3 border-y border-dashed space-y-2">
+            <div className="flex justify-between">
+                <span className="font-semibold text-gray-700">Ward Business</span>
+                {meeting.wardBusiness.length === 0 ? (
+                <span className="text-gray-600">None</span>
+                ) : (
+                <ul className="text-right text-gray-600 space-y-1">
+                    {meeting.wardBusiness.map((b, i) => (
+                    <li key={i}>{b.description}</li>
+                    ))}
+                </ul>
                 )}
             </div>
-            )}
-
             <div className="flex justify-between">
-            <span className="font-semibold text-gray-700">Sacrament Hymn</span>
-            <span>#{meeting.sacramentHymn.number} — {meeting.sacramentHymn.title}</span>
+                <span className="font-semibold text-gray-700">Stake Business</span>
+                <span className="text-gray-600">{meeting.stakeBusiness ? 'Yes' : 'No'}</span>
             </div>
+        </div>
 
             {/* Speakers & Musical Numbers */}
             <div className="py-4 border-y">

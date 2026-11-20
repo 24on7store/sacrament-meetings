@@ -7,7 +7,7 @@ import clsx from 'clsx';
 const links = [
     { name: 'Home', href: '/' },
     { name: 'All Meetings', href: '/meetings' },
-    { name: 'This Sunday', href: '/meetings/current' },
+    //{ name: 'This Sunday', href: '/meetings/current' },
     ];
 
     export default function NavLinks() {
@@ -16,7 +16,11 @@ const links = [
     return (
         <nav aria-label="Primary Navigation" className="flex gap-3">
         {links.map((link) => {
-            const isActive = pathname === link.href;
+            const isActive = 
+            link.href === '/'
+            ? pathname === '/'
+            : pathname.startsWith(link.href);
+
             return (
             <Link
                 key={link.name}

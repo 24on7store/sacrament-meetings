@@ -12,14 +12,14 @@ const meetings: SacramentMeeting[] = [
         openingPrayer: 'Sister Adams',
         wardBusiness: [{ description: 'Release of Brother Clark as Sunday School Teacher' }],
         stakeBusiness: false,
-        sacramentHymn: { number: 169, title: 'In Remembrance of Thy Suffering' },
+        sacramentHymn: { number: 169, title: 'As Now We Take the Sacrament' },
         speakers: [], // Testimony meeting
         closingHymn: { number: 31, title: 'O God, Our Help in Ages Past' },
         closingPrayer: 'Brother Davis',
     },
     {
         id: 2,
-        date: '2026-11-08', // Matches this current week's Sunday!
+        date: '2026-11-08', 
         meetingType: 'regular',
         presiding: 'Bishop Smith',
         conducting: 'Brother Jones',

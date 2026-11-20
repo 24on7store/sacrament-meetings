@@ -4,7 +4,7 @@ import { getMeetingById } from '@/lib/meetings-db';
 export async function GET(
     _request: Request,
     { params }: { params: Promise<{ id: string }> }
-    ) {
+    ): Promise<NextResponse> {
     const { id } = await params;
     const numericId = Number(id);
 
