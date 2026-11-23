@@ -15,7 +15,7 @@ export default async function CurrentMeetingPage() {
     const day = String(sunday.getDate()).padStart(2, '0');
     const sundayIso = `${year}-${month}-${day}`;
 
-    const matchingMeetings = getMeetings(sundayIso);
+    const matchingMeetings = await getMeetings(sundayIso);
 
     if (matchingMeetings.length > 0) {
         redirect(`/meetings/${matchingMeetings[0].id}`);
