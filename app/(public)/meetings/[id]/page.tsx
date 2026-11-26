@@ -96,4 +96,4 @@ async function MeetingDetailContent({
         <MeetingDetailContent params={params} />
         </Suspense>
     );
-    }
+}
